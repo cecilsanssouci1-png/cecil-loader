@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Loader</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    #bar {
+      background: #222;
+      padding: 10px;
+      display: flex;
+      gap: 10px;
+    }
+    input {
+      flex: 1;
+      padding: 8px;
+      border-radius: 4px;
+      border: none;
+      outline: none;
+    }
+    button {
+      padding: 8px 16px;
+      background: #4caf50;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      cursor: pointer;
+    }
+    iframe {
+      width: 100%;
+      height: calc(100vh - 50px);
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+<div id="bar">
+  <input id="url" placeholder="Enter a website URL (example: https://wikipedia.org)" />
+  <button onclick="loadSite()">Load</button>
+</div>
+
+<iframe id="viewer" src=""></iframe>
+
+<script>
+function loadSite() {
+  let u = document.getElementById("url").value;
+  if (!u.startsWith("http")) u = "https://" + u;
+  document.getElementById("viewer").src = u;
+}
+</script>
+
+</body>
+</html>
